@@ -1,20 +1,30 @@
 from django.contrib.messages import constants as messages
 from pathlib import Path
 
+# Django-environ support
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+env = environ.Env(
+    # set casting, default value
+    SECRET_KEY=(str, "this_is_just_a_temporary_secret_key"),
+    DEBUG=(bool, True),
+    ALLOWED_HOSTS=(list, ["127.0.0.1"]),
+    ADMIN_URL=(str, "admin"),
+)
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "l=smkbvi!g4@2hg3h_bf#0@p)(%h((hd8z@htaj7yf_=&122c("
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+
+ADMIN_URL = env("ADMIN_URL")
 
 
 # Application definition
