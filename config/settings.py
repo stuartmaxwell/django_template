@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",  # Required and added for django-allauth
     "allauth",  # Required and added for django-allauth
     "allauth.account",  # Required and added for django-allauth
+    "crispy_forms",  # Required and added for django-crispy-forms
     "users",
 ]
 
@@ -141,6 +142,10 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
+
+
+# django-crispy-forms configuration
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 # The following constants let us use Bootstrap alerts with messages
