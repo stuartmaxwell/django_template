@@ -4,3 +4,5 @@ django
 django-allauth
 django-crispy-forms
 django-debug-toolbar
+pytest
+pytest-django
