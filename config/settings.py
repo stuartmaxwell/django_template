@@ -48,6 +48,7 @@ if DEBUG:
 AUTH_USER_MODEL = "users.User"
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",  # noqa Required and added for django-debug-toolbar
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -56,11 +57,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-
-if DEBUG:
-    MIDDLEWARE += [
-        "debug_toolbar.middleware.DebugToolbarMiddleware",  # noqa Required and added for django-debug-toolbar
-    ]
 
 ROOT_URLCONF = "config.urls"
 
@@ -116,9 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-nz"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Pacific/Auckland"
 
 USE_I18N = True
 
@@ -135,4 +131,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
