@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     "users",
 ]
 
+if DEBUG:
+    INSTALLED_APPS += [
+        "debug_toolbar",  # Required and added for django-debug-toolbar
+    ]
+
 AUTH_USER_MODEL = "users.User"
 
 MIDDLEWARE = [
@@ -51,6 +56,11 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+if DEBUG:
+    MIDDLEWARE += [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",  # noqa Required and added for django-debug-toolbar
+    ]
 
 ROOT_URLCONF = "config.urls"
 
