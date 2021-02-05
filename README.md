@@ -1,1 +1,3 @@
-# Karearea
+# Django_Template
+
+My simple Django template for starting projects...
